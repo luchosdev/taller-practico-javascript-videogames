@@ -27,12 +27,15 @@ function startGame() {
   game.textAlign = 'end';
 
   const map = maps[0];
-  const mapRows = maps[0].trim().split('\n');
+  const mapRows = map.trim().split('\n');
   const mapRowCols = mapRows.map((row) => row.trim().split(''));
 
-  for (let row = 1; row <= 10; row++) {
-    for (let col = 1; col <= 10; col++) {
-      game.fillText(emojis[mapRowCols[row - 1][col - 1]], elementsSize * col + 15, elementsSize * row - 10);
-    }
-  }
+  mapRowCols.forEach((row, rowI) => {
+    row.forEach((col, colI) => {
+      const emoji = emojis[col];
+      const posX = elementsSize * (colI + 1.2);
+      const posY = elementsSize * (rowI + 0.85);
+      game.fillText(emoji, posX, posY);
+    });
+  });
 }
