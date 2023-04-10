@@ -1,0 +1,9 @@
+colocale sonidos:
+1.- Para cuando inicia el juego y desde entonces poner un sonido divertido y relajante a la vez, ver la forma de que no se detenga cuando se reproduzcan los otros sonidos.
+2.- Cuando se mueva la calavera, un sonido como de un beat, de pasos o algo así.
+3.- Cuando llegue al regalo un sonido como de "encontrar" o "meta".
+4.- Cuando colisiones con las bombas un sonido de explosion.
+5.- Verificar que todos estos sonidos no tengan mucho volumen para que no aturda al jugador.
+6.- Que todos los sonidos sean más bajos que el general.
+7.- Cuando pase a un nuevo nivel, que el sonido sea de felicitaciones o algo así.
+8.- Hay que ver otros juegos tipo arcade para copiar sus sonidos, creo que hay una pagina especial para estos tipos de sonidos.
