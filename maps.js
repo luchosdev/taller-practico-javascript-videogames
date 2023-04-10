@@ -8,7 +8,10 @@ const emojis = {
   GAME_OVER: '👎',
   WIN: '🏆',
 };
+
 const maps = [];
+
+/* Level 1 */
 maps.push(`
   IXXXXXXXXX
   -XXXXXXXXX
@@ -21,6 +24,8 @@ maps.push(`
   -XXXXXXXXX
   OXXXXXXXXX
 `);
+
+/* Level 2 */
 maps.push(`
   O--XXXXXXX
   X--XXXXXXX
@@ -33,6 +38,8 @@ maps.push(`
   XXXX---IXX
   XXXXXXXXXX
   `);
+
+/* Level 3 */
 maps.push(`
   I-----XXXX
   XXXXX-XXXX
