@@ -151,7 +151,7 @@ function levelFail() {
     lives = 3;
     timeStart = undefined;
     modalFinish();
-    estado.innerHTML = 'GAME OVER 🤬';
+    estado.innerHTML = 'GAME OVER 😭';
     pTime.classList.add('d-none');
     pRecord.classList.add('d-none');
   }
