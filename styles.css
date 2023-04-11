@@ -158,7 +158,7 @@ p {
 
 @media (max-width: 440px) {
   button {
-    margin-top: 25px;
+    margin-top: 0.2rem;
   }
 
   .messages {
@@ -180,5 +180,9 @@ p {
 @media (max-width: 538px) {
   #reset {
     margin-top: 1rem;
+  }
+
+  .game-container {
+    height: auto;
   }
 }
