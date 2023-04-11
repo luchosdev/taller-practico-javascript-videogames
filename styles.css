@@ -63,6 +63,99 @@ p {
   width: 100%;
 }
 
+.conteo-juego {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 10, 32, 0.9);
+  overflow: hidden;
+}
+
+.number-conteo {
+  font-size: 50px;
+  color: #fff;
+  animation-name: numeroConteo;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+@keyframes numeroConteo {
+  0% {
+    transform: scale(1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    transform: scale(15);
+    color: rgba(255, 255, 255, 0.6);
+  }
+  75% {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    color: transparent;
+  }
+}
+
+.fin-juego {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 10, 32, 0.9);
+  position: absolute;
+  backdrop-filter: blur(5px);
+}
+
+.lose-vida {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 10, 32, 0.9);
+  position: absolute;
+  backdrop-filter: blur(5px);
+}
+
+.active {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.fin-juego div {
+  font-size: 60px;
+}
+
+.fin-juego p {
+  text-align: center;
+  font-size: 30px;
+}
+
+.lose-vida div {
+  font-size: 60px;
+}
+
+.lose-vida p {
+  text-align: center;
+  font-size: 30px;
+}
+
+.game-restart {
+  width: 150px;
+}
+
 @media (max-width: 440px) {
   button {
     margin-top: 25px;

@@ -18,6 +18,47 @@
   </head>
   <body>
     <div class="game-container">
+      <div
+        class="conteo-juego"
+        id="conteoJuego"
+      >
+        <span
+          class="number-conteo"
+          id="numberConteo"
+        ></span>
+      </div>
+      <!-- Modal Finish -->
+      <div
+        class="fin-juego"
+        id="finishGame"
+      >
+        <div id="estado">😎</div>
+        <p id="pTime">
+          Tiempo:
+          <span
+            class="time"
+            id="finishTime"
+          ></span>
+        </p>
+        <p id="pRecord">🏅 Record: <span id="record"></span></p>
+        <p id="result"></p>
+        <button
+          class="game-restart"
+          id="gameRestart"
+        >
+          Jugar de nuevo
+        </button>
+      </div>
+      <!-- Modal Lose -->
+      <div
+        class="lose-vida"
+        id="loseVida"
+      >
+        <div id="estado">Perdiste una vida 💔</div>
+
+        <p id="result"></p>
+      </div>
+
       <canvas id="game"></canvas>
 
       <div class="btns">
@@ -25,11 +66,7 @@
         <button id="left">Izquierda</button>
         <button id="right">Derecha</button>
         <button id="down">Abajo</button>
-        <button
-          id="reset"
-        >
-          Reiniciar Juego
-        </button>
+        <button id="reset">Reiniciar Juego</button>
       </div>
 
       <div class="messages">
