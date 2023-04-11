@@ -8,6 +8,7 @@ const spanLives = document.querySelector('#lives');
 const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
 const pResult = document.querySelector('#result');
+const botonReiniciar = document.querySelector('#reset');
 
 let canvasSize;
 let elementsSize;
@@ -101,6 +102,8 @@ function startGame() {
     });
   });
 
+  botonReiniciar.addEventListener('click', reiniciarJuego);
+
   movePlayer();
 }
 
@@ -176,6 +179,10 @@ function showTime() {
 
 function showRecord() {
   spanRecord.innerHTML = localStorage.getItem('record_time');
+}
+
+function reiniciarJuego() {
+  location.reload();
 }
 
 window.addEventListener('keydown', moveByKeys);
