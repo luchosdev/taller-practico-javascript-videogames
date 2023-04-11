@@ -132,7 +132,6 @@ function levelWin() {
 }
 
 function levelFail() {
-  console.log('Chocaste contra un enemigo! :(');
   lives--;
 
   if (lives <= 0) {
@@ -147,7 +146,6 @@ function levelFail() {
 }
 
 function gameWin() {
-  console.log('Terminaste el juego');
   clearInterval(timeInterval);
 
   const recordTime = localStorage.getItem('record_time');
