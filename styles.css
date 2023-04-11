@@ -165,8 +165,7 @@ p {
 
 @media (max-width: 440px) {
   button {
-    padding: auto;
-    font-size: medium;
+    font-size: 1.2rem;
     margin-top: 0.2rem;
   }
 
