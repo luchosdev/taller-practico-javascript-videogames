@@ -179,6 +179,7 @@ p {
   }
 
   #up {
+    margin-top: 2rem;
     margin-bottom: 1rem;
     margin-left: 100%;
     margin-right: 100%;
@@ -192,11 +193,19 @@ p {
 }
 
 @media (max-width: 538px) {
+  canvas {
+    margin-top: 3rem;
+  }
+
   #reset {
     margin-top: 1rem;
   }
 
   .game-container {
     height: auto;
+  }
+
+  .messages {
+    margin-top: 3rem;
   }
 }
