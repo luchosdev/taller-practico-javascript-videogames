@@ -164,11 +164,6 @@ p {
 }
 
 @media (max-width: 440px) {
-  button {
-    font-size: 1.2rem;
-    margin-top: 0.2rem;
-  }
-
   .messages {
     display: flex;
     flex-wrap: wrap;
@@ -195,6 +190,11 @@ p {
 @media (max-width: 538px) {
   canvas {
     margin-top: 3rem;
+  }
+
+  button {
+    font-size: 2rem;
+    margin-top: 0.2rem;
   }
 
   #reset {
