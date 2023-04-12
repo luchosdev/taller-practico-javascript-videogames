@@ -149,7 +149,8 @@ p {
   font-size: 60px;
 }
 
-.fin-juego p {
+.fin-juego p,
+#result {
   text-align: center;
   font-size: 30px;
 }

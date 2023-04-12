@@ -18,8 +18,8 @@ const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 
 const spanLives = document.querySelector('#lives');
-// const spanTime = document.querySelector('#time');
-const spanRecord = document.querySelector('#record');
+const spanRecord = document.querySelector('#recordNow');
+const spanRecord2 = document.querySelector('#recordNow2');
 const pResult = document.querySelector('#result');
 
 const botonReiniciar = document.querySelector('#reset');
@@ -32,8 +32,6 @@ let lives = 3;
 let timeStart;
 let timePlayer;
 let timeInterval;
-// let seconds = 0;
-// let minutes = 0;
 
 const playerPosition = {
   x: undefined,
@@ -85,12 +83,12 @@ let i = setInterval(function () {
 function tiempoYa() {
   if (!timeStart) {
     timeStart = Date.now();
-    timeInterval = setInterval(showTime, 100);
     showRecord();
     countTimer();
   }
 }
 
+let timerLapsed;
 /* Contador de tiempo transcurrido */
 function countTimer() {
   // Inicializar temporizador a cero
@@ -110,6 +108,7 @@ function countTimer() {
     let minutesText = minutes < 10 ? '0' + minutes : minutes;
     let secondsText = seconds < 10 ? '0' + seconds : seconds;
     timerElement.innerText = minutesText + ':' + secondsText;
+    timerLapsed = minutesText + ':' + secondsText;
   }, 1000);
 }
 
@@ -164,8 +163,8 @@ function startGame() {
 }
 
 function movePlayer() {
-  const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
-  const giftCollisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
+  const giftCollisionX = playerPosition.x.toFixed(2) == giftPosition.x.toFixed(2);
+  const giftCollisionY = playerPosition.y.toFixed(2) == giftPosition.y.toFixed(2);
   const giftCollision = giftCollisionX && giftCollisionY;
 
   if (giftCollision) {
@@ -173,8 +172,8 @@ function movePlayer() {
   }
 
   const enemyCollision = enemyPositions.find((enemy) => {
-    const enemyCollisionX = enemy.x.toFixed(3) == playerPosition.x.toFixed(3);
-    const enemyCollisionY = enemy.y.toFixed(3) == playerPosition.y.toFixed(3);
+    const enemyCollisionX = enemy.x.toFixed(2) == playerPosition.x.toFixed(2);
+    const enemyCollisionY = enemy.y.toFixed(2) == playerPosition.y.toFixed(2);
     return enemyCollisionX && enemyCollisionY;
   });
 
@@ -220,11 +219,13 @@ function modalFinish() {
 
 function gameWin() {
   clearInterval(timeInterval);
+  modalFinish();
+  recordWin();
 }
 
 function recordWin() {
   const recordTime = localStorage.getItem('record_time');
-  const playerTime = Date.now() - timeStart;
+  const playerTime = timerLapsed;
   if (recordTime) {
     if (recordTime >= playerTime) {
       localStorage.setItem('record_time', playerTime);
@@ -235,9 +236,12 @@ function recordWin() {
       pResult.innerHTML = 'Lo siento, no superaste el record 😢';
       finishTime.innerHTML = playerTime;
       estado.innerHTML = '😫';
+      spanRecord2.innerHTML = localStorage.getItem('record_time');
     }
   } else {
     localStorage.setItem('record_time', playerTime);
+    pTime.classList.add('d-none');
+    spanRecord2.innerHTML = localStorage.getItem('record_time');
     pResult.innerHTML = 'A por un RECORD! 😉';
   }
 }
@@ -247,10 +251,6 @@ function showLives() {
 
   spanLives.innerHTML = '';
   heartsArray.forEach((heart) => spanLives.append(heart));
-}
-
-function showTime() {
-  spanTime.innerHTML = Date.now() - timeStart;
 }
 
 function showRecord() {
