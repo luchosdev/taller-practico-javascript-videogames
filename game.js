@@ -18,7 +18,7 @@ const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 
 const spanLives = document.querySelector('#lives');
-const spanTime = document.querySelector('#time');
+// const spanTime = document.querySelector('#time');
 const spanRecord = document.querySelector('#record');
 const pResult = document.querySelector('#result');
 
@@ -32,6 +32,8 @@ let lives = 3;
 let timeStart;
 let timePlayer;
 let timeInterval;
+// let seconds = 0;
+// let minutes = 0;
 
 const playerPosition = {
   x: undefined,
@@ -66,6 +68,52 @@ function setCanvasSize() {
   startGame();
 }
 
+// Conteo antes de iniciar el juego
+let conteoAtras = 3;
+let i = setInterval(function () {
+  numberConteo.innerHTML = conteoAtras;
+  conteoAtras--;
+  if (conteoAtras < 0) {
+    clearInterval(i);
+    conteoJuego.classList.add('d-none');
+    tiempoYa();
+
+    window.addEventListener('keydown', moveByKeys);
+  }
+}, 1500);
+
+function tiempoYa() {
+  if (!timeStart) {
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100);
+    showRecord();
+    countTimer();
+  }
+}
+
+/* Contador de tiempo transcurrido */
+function countTimer() {
+  // Inicializar temporizador a cero
+  let minutes = 0;
+  let seconds = 0;
+
+  // Obtener elemento HTML donde se mostrará el temporizador
+  let timerElement = document.getElementById('time');
+
+  // Actualizar y mostrar el temporizador cada segundo
+  setInterval(function () {
+    seconds++;
+    if (seconds == 60) {
+      minutes++;
+      seconds = 0;
+    }
+    let minutesText = minutes < 10 ? '0' + minutes : minutes;
+    let secondsText = seconds < 10 ? '0' + seconds : seconds;
+    timerElement.innerText = minutesText + ':' + secondsText;
+  }, 1000);
+}
+
+/* Logica del juego */
 function startGame() {
   game.font = elementsSize + 'px Verdana';
   game.textAlign = 'end';
@@ -207,28 +255,6 @@ function showTime() {
 
 function showRecord() {
   spanRecord.innerHTML = localStorage.getItem('record_time');
-}
-
-// Conteo antes de iniciar el juego
-let conteoAtras = 3;
-let i = setInterval(function () {
-  numberConteo.innerHTML = conteoAtras;
-  conteoAtras--;
-  if (conteoAtras < 0) {
-    clearInterval(i);
-    conteoJuego.classList.add('d-none');
-    tiempoYa();
-
-    window.addEventListener('keydown', moveByKeys);
-  }
-}, 1500);
-
-function tiempoYa() {
-  if (!timeStart) {
-    timeStart = Date.now();
-    timeInterval = setInterval(showTime, 100);
-    showRecord();
-  }
 }
 
 function reiniciarJuego() {
